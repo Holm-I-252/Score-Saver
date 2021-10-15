@@ -14,3 +14,4 @@ Future Features:
 - Users can search for a specific player to get info on
 - Users can add players as favorites
 - Could alert players of any match events in the case of them loging on during a live match
+- Could include results from other leagues such as the MLS, or Bundesliga
