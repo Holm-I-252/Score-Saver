@@ -113,6 +113,10 @@ video {
   display: flex;
   flex-direction: row;
   margin-bottom: 5%;
+  border-color: rgb(94, 93, 93);
+  border-style: solid;
+  border-width: 2px;
+  padding: 5px;
 }
 
 .teamDiv {

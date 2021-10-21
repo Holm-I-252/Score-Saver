@@ -21,7 +21,6 @@ class Teams extends Component {
   }
 
   render() {
-    let send = this.state.data.shortName;
     let teams = this.state.data.map((d) => (
       <li key={d.id} className="teamList">
         <img src={d.crestUrl} alt={d.shortName} className="teamImg"></img>
