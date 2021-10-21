@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-class Arsenal extends Component {
+class Wolverhampton extends Component {
   constructor() {
     super();
     this.state = {
@@ -20,8 +20,8 @@ class Arsenal extends Component {
 
     this.state.data.forEach((element) => {
       if (
-        element.homeTeam.name === "Arsenal FC" ||
-        element.awayTeam.name === "Arsenal FC"
+        element.homeTeam.name === "Wolverhampton Wanderers FC" ||
+        element.awayTeam.name === "Wolverhampton Wanderers FC"
       ) {
         this.setState({ teamMatch: element });
       }
@@ -54,4 +54,4 @@ class Arsenal extends Component {
   }
 }
 
-export default Arsenal;
+export default Wolverhampton;

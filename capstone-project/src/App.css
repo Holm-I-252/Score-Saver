@@ -83,7 +83,6 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
 }
 
@@ -144,8 +143,10 @@ video {
   border-width: 2px;
   border-color: black;
   border-style: solid;
+  border-radius: 15px;
   padding: 20px;
   width: 100%;
+  background-color: rgb(196, 196, 196);
 }
 
 .standingsTitle {
@@ -173,4 +174,10 @@ video {
 
 .matchList {
   text-align: center;
+}
+
+.currentPage {
+  text-align: center;
+  font-size: xx-large;
+  margin-bottom: 20px;
 }

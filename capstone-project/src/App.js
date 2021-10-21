@@ -4,6 +4,25 @@ import Teams from "./components/Teams";
 import Standings from "./components/Standings";
 import Score from "./components/Score";
 import Arsenal from "./components/teams/Arsenal";
+import AstonVilla from "./components/teams/AstonVilla";
+import Chelsea from "./components/teams/Chelsea";
+import Everton from "./components/teams/Everton";
+import Liverpool from "./components/teams/Liverpool";
+import ManCity from "./components/teams/ManCity";
+import ManUnited from "./components/teams/ManUnited";
+import Newcastle from "./components/teams/Newcastle";
+import Norwich from "./components/teams/Norwitch";
+import Tottenham from "./components/teams/Tottenham";
+import Wolverhampton from "./components/teams/Wolves";
+import Burnley from "./components/teams/Burnley";
+import Leicester from "./components/teams/Leicester";
+import Southampton from "./components/teams/Southampton";
+import Leeds from "./components/teams/Leeds";
+import Watford from "./components/teams/Watford";
+import CrystalPalace from "./components/teams/CrystalPalace";
+import Brighton from "./components/teams/Brighton";
+import Brentford from "./components/teams/Brentford";
+import WestHam from "./components/teams/WestHam";
 
 class App extends Component {
   constructor() {
@@ -11,23 +30,87 @@ class App extends Component {
     this.state = {
       display: "home",
     };
+    this.handler = this.handler.bind(this);
+  }
+
+  handler(value) {
+    this.setState({ display: value });
   }
 
   render() {
     return (
       <div className="App">
         <div id="headder">
-          <div className="nav">(add nav links)</div>
+          <div className="nav">
+            <h4
+              className="homeBtn"
+              onClick={() => {
+                this.setState({ display: "" });
+              }}
+            >
+              Home
+            </h4>
+          </div>
           <h1 className="title">Score Saver</h1>
           <div className="account">
             <h3 className="userName">Welcome (enter name)!</h3>
             <p>Account (add link)</p>
           </div>
         </div>
+        <h1 className="currentPage">{this.state.display}</h1>
         <div id="contentArea">
-          <Teams />
-          <Score />
-          <Arsenal />
+          <Teams
+            setState={(p) => {
+              this.setState({ display: p });
+              console.log(p);
+            }}
+          />
+          {(() => {
+            switch (this.state.display) {
+              case "Arsenal":
+                return <Arsenal />;
+              case "Aston Villa":
+                return <AstonVilla />;
+              case "Chelsea":
+                return <Chelsea />;
+              case "Everton":
+                return <Everton />;
+              case "Liverpool":
+                return <Liverpool />;
+              case "Man City":
+                return <ManCity />;
+              case "Man United":
+                return <ManUnited />;
+              case "Newcastle":
+                return <Newcastle />;
+              case "Norwich":
+                return <Norwich />;
+              case "Tottenham":
+                return <Tottenham />;
+              case "Wolverhampton":
+                return <Wolverhampton />;
+              case "Burnley":
+                return <Burnley />;
+              case "Leicester City":
+                return <Leicester />;
+              case "Southampton":
+                return <Southampton />;
+              case "Leeds United":
+                return <Leeds />;
+              case "Watford":
+                return <Watford />;
+              case "Crystal Palace":
+                return <CrystalPalace />;
+              case "Brighton Hove":
+                return <Brighton />;
+              case "Brentford":
+                return <Brentford />;
+              case "West Ham":
+                return <WestHam />;
+              default:
+                return <Score />;
+            }
+          })()}
           <Standings />
         </div>
       </div>
