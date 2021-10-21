@@ -1,0 +1,176 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+#headder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(57, 233, 66);
+}
+
+#teamSection {
+  width: 70%;
+  list-style: none;
+}
+
+.teamImg {
+  width: 15%;
+  height: 15%;
+  margin-right: 5%;
+}
+
+.teamName {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.teamList {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5%;
+}
+
+.teamDiv {
+  margin-left: 2%;
+  width: 20%;
+}
+
+.teamTitle {
+  text-align: center;
+  margin-bottom: 5%;
+  text-decoration: underline;
+  font-size: xx-large;
+}
+
+#contentArea {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.tableItem {
+  list-style: none;
+  padding: 5px;
+  border: 2px black;
+}
+
+#standings {
+  border-width: 2px;
+  border-color: black;
+  border-style: solid;
+  padding: 20px;
+  width: 100%;
+}
+
+.standingsTitle {
+  text-align: center;
+  margin-bottom: 5%;
+  text-decoration: underline;
+  font-size: xx-large;
+}
+
+.matchItem {
+  list-style: none;
+  margin-bottom: 5%;
+}
+
+.scores {
+  margin-top: 5%;
+}
+
+.scoreTitle {
+  text-align: center;
+  margin-bottom: 5%;
+  text-decoration: underline;
+  font-size: xx-large;
+}
+
+.matchList {
+  text-align: center;
+}
