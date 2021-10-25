@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import SignIn from "./components/signIn";
 import Teams from "./components/Teams";
 import Standings from "./components/Standings";
 import Score from "./components/Score";
@@ -28,7 +29,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      display: "home",
+      display: "Home",
+      user: "",
     };
     this.handler = this.handler.bind(this);
   }
@@ -51,20 +53,20 @@ class App extends Component {
               Home
             </h4>
           </div>
-          <h1 className="title">Score Saver</h1>
           <div className="account">
-            <h3 className="userName">Welcome (enter name)!</h3>
-            <p>Account (add link)</p>
+            <h3 className="userName">Welcome {this.state.user}!</h3>
+            <button
+              className="signInBtn"
+              onClick={() => {
+                this.setState({ display: "Log In" });
+              }}
+            >
+              Log In
+            </button>
           </div>
         </div>
         <h1 className="currentPage">{this.state.display}</h1>
-        <div id="contentArea">
-          <Teams
-            setState={(p) => {
-              this.setState({ display: p });
-              console.log(p);
-            }}
-          />
+        <div id="mainPage">
           {(() => {
             switch (this.state.display) {
               case "Arsenal":
@@ -107,11 +109,32 @@ class App extends Component {
                 return <Brentford />;
               case "West Ham":
                 return <WestHam />;
+              case "Log In":
+                return (
+                  <SignIn
+                    setStateUser={(p) => {
+                      this.setState({ user: p });
+                    }}
+                    setStateDisplay={(p) => {
+                      this.setState({ display: p });
+                    }}
+                  />
+                );
               default:
-                return <Score />;
+                return (
+                  <div id="contentArea">
+                    <Teams
+                      setState={(p) => {
+                        this.setState({ display: p });
+                        console.log(p);
+                      }}
+                    />
+                    <Score />
+                    <Standings />
+                  </div>
+                );
             }
           })()}
-          <Standings />
         </div>
       </div>
     );

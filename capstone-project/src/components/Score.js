@@ -22,10 +22,10 @@ class Score extends Component {
   render() {
     let matches = this.state.data.map((d) => (
       <li key={d.id} className="matchItem">
-        <h4 className="awayAndHome">
+        <h4 className="allAwayAndHome">
           {d.awayTeam.name} (away) vs. (home) {d.homeTeam.name}
         </h4>
-        <h4 className="scores">
+        <h4 className="allScores">
           {d.score.fullTime.awayTeam} - {d.score.fullTime.homeTeam}
         </h4>
       </li>

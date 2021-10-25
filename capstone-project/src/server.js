@@ -38,7 +38,7 @@ axios
   });
 
 axios
-  .get("https://api.football-data.org/v2/competitions/PL/matches/?matchday=8", {
+  .get("https://api.football-data.org/v2/competitions/PL/matches/?matchday=9", {
     //Make sure to update match day every week, or fix with new solution
     headers: {
       "X-Auth-Token": "1ee93bfc0d79467fab303092daa35386",
@@ -46,7 +46,6 @@ axios
   })
   .then((res) => {
     matches = res.data;
-    console.log(matches);
   });
 
 //endpoints for front end api calls

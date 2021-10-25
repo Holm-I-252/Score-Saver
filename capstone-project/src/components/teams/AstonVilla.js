@@ -11,6 +11,8 @@ class AstonVilla extends Component {
       home: "",
       awayScore: "",
       homeScore: "",
+      matchData: [],
+      matchImg: {},
     };
   }
 
@@ -34,6 +36,24 @@ class AstonVilla extends Component {
     this.setState({ home: info.homeTeam.name });
     this.setState({ awayScore: info.score.fullTime.awayTeam });
     this.setState({ homeScore: info.score.fullTime.homeTeam });
+
+    let matchRes = await axios.get("http://localhost:4040/api/home");
+    console.log(matchRes.data);
+    this.setState({ matchData: matchRes.data.teams });
+
+    let awayImg = "";
+    let homeImg = "";
+
+    this.state.matchData.forEach((element) => {
+      if (element.name === this.state.away) {
+        awayImg = element.crestUrl;
+      }
+      if (element.name === this.state.home) {
+        homeImg = element.crestUrl;
+      }
+    });
+
+    this.setState({ matchImg: { away: awayImg, home: homeImg } });
   }
 
   componentDidMount() {
@@ -47,7 +67,17 @@ class AstonVilla extends Component {
           {this.state.away} (away) vs. (home) {this.state.home}
         </h4>
         <h4 className="scores">
-          {this.state.awayScore} - {this.state.homeScore}
+          <img
+            className="teamIcon"
+            src={this.state.matchImg.away}
+            alt={this.state.away}
+          />{" "}
+          {this.state.awayScore} - {this.state.homeScore}{" "}
+          <img
+            className="teamIcon"
+            src={this.state.matchImg.home}
+            alt={this.state.home}
+          />
         </h4>
       </div>
     );

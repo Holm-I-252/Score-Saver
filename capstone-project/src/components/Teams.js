@@ -22,16 +22,15 @@ class Teams extends Component {
 
   render() {
     let teams = this.state.data.map((d) => (
-      <li key={d.id} className="teamList">
+      <li
+        key={d.id}
+        className="teamList"
+        onClick={() => {
+          this.props.setState(d.shortName);
+        }}
+      >
         <img src={d.crestUrl} alt={d.shortName} className="teamImg"></img>
-        <p
-          className="teamName"
-          onClick={() => {
-            this.props.setState(d.shortName);
-          }}
-        >
-          {d.shortName}
-        </p>
+        <p className="teamName">{d.shortName}</p>
       </li>
     ));
     return (
