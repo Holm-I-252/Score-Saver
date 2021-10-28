@@ -86,11 +86,23 @@ video {
   vertical-align: baseline;
 }
 
+h3 {
+  font-size: xx-large;
+}
+
 #headder {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   background-color: rgb(57, 233, 66);
+}
+
+.title {
+  font-style: italic;
+}
+
+.account {
+  margin-right: 3%;
 }
 
 #teamSection {
@@ -117,16 +129,16 @@ video {
   border-style: solid;
   border-width: 2px;
   padding: 5px;
+  background-color: white;
 }
 
 .teamDiv {
-  margin-left: 2%;
   width: 20%;
 }
 
 .teamTitle {
   text-align: center;
-  margin-bottom: 5%;
+  margin-bottom: 9%;
   text-decoration: underline;
   font-size: xx-large;
 }
@@ -155,7 +167,7 @@ video {
 
 .standingsTitle {
   text-align: center;
-  margin-bottom: 5%;
+  margin-bottom: 9%;
   text-decoration: underline;
   font-size: xx-large;
 }
@@ -177,6 +189,8 @@ video {
   border-width: 2px;
   border-color: black;
   border-style: solid;
+  border-radius: 15px;
+  background-color: rgb(243, 243, 243);
   padding: 20px;
 }
 
@@ -184,6 +198,7 @@ video {
   text-align: center;
   font-size: xx-large;
   margin-bottom: 20px;
+  text-decoration: underline;
 }
 
 .teamScores {
@@ -192,6 +207,7 @@ video {
   margin-right: auto;
   margin-left: auto;
   width: 60%;
+  text-align: center;
 }
 
 .awayAndHome {
@@ -203,6 +219,7 @@ video {
   text-align: center;
   font-size: 500%;
   margin-top: 10%;
+  margin-bottom: 10%;
 }
 
 .teamIcon {
@@ -220,4 +237,74 @@ video {
 
 .allScores {
   margin-top: 10px;
+}
+
+.signInCard {
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.signIn {
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.signInForm {
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.signInName {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.signInPass {
+  margin-bottom: 10%;
+}
+
+.createUser {
+  text-align: center;
+}
+
+.createUserForm {
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.createName {
+  margin-top: 6%;
+  margin-bottom: 6%;
+}
+
+.createUsername {
+  margin-bottom: 6%;
+}
+
+.createPassword {
+  margin-bottom: 6%;
+}
+
+#selectTeam {
+  margin-bottom: 6%;
+}
+
+.playerItem {
+  list-style: none;
+  margin-top: 3%;
+}
+
+.matchTitle {
+  margin-bottom: 3%;
+}
+
+.scorerList {
+  margin-bottom: 10%;
 }

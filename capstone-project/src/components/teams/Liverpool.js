@@ -11,6 +11,7 @@ class Liverpool extends Component {
       home: "",
       matchData: [],
       matchImg: {},
+      topPlayers: [],
     };
   }
 
@@ -52,6 +53,19 @@ class Liverpool extends Component {
     });
 
     this.setState({ matchImg: { away: awayImg, home: homeImg } });
+
+    let scorers = await axios.get("http://localhost:4040/api/scorers");
+
+    scorers.data.scorers.forEach((element) => {
+      if (element.team.name === "Liverpool FC") {
+        let name = element.player.name;
+        let score = element.numberOfGoals;
+        let position = element.player.position;
+        this.setState({
+          topPlayers: [...this.state.topPlayers, { name, score, position }],
+        });
+      }
+    });
   }
 
   componentDidMount() {
@@ -59,8 +73,14 @@ class Liverpool extends Component {
   }
 
   render() {
+    let topScorers = this.state.topPlayers.map((d) => (
+      <li className="playerItem">
+        {d.name}: {d.score}
+      </li>
+    ));
     return (
       <div className="teamScores">
+        <h3 className="matchTitle">Last Match</h3>
         <h4 className="awayAndHome">
           {this.state.away} (away) vs. (home) {this.state.home}
         </h4>
@@ -77,6 +97,8 @@ class Liverpool extends Component {
             alt={this.state.home}
           />
         </h4>
+        <h3>Top Scorers</h3>
+        <ul className="scorerList">{topScorers}</ul>
       </div>
     );
   }

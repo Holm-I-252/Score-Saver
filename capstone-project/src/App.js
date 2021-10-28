@@ -31,6 +31,7 @@ class App extends Component {
     this.state = {
       display: "Home",
       user: "",
+      userTeam: "",
     };
     this.handler = this.handler.bind(this);
   }
@@ -53,8 +54,9 @@ class App extends Component {
               Home
             </h4>
           </div>
+          <h4 className="title">Score Saver</h4>
           <div className="account">
-            <h3 className="userName">Welcome {this.state.user}!</h3>
+            <h4 className="userName">Welcome {this.state.user}!</h4>
             <button
               className="signInBtn"
               onClick={() => {
@@ -117,6 +119,9 @@ class App extends Component {
                     }}
                     setStateDisplay={(p) => {
                       this.setState({ display: p });
+                    }}
+                    setStateUserTeam={(p) => {
+                      this.setState({ userTeam: p });
                     }}
                   />
                 );
