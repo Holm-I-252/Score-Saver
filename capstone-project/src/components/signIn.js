@@ -63,7 +63,8 @@ class SignIn extends Component {
         element.password === this.state.signInPass
       ) {
         userExists = true;
-        userTeam = element.faveTeam;
+        console.log(element.fave_team);
+        userTeam = element.fave_team;
       }
     });
 
@@ -77,6 +78,7 @@ class SignIn extends Component {
       this.props.setStateUser(this.state.signInUsername);
       this.props.setStateDisplay("");
       this.props.setStateUserTeam(userTeam);
+      console.log(userTeam);
     }
   }
 

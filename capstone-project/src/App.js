@@ -134,7 +134,53 @@ class App extends Component {
                         console.log(p);
                       }}
                     />
-                    <Score />
+                    {(() => {
+                      switch (this.state.userTeam) {
+                        case "Arsenal":
+                          return <Arsenal />;
+                        case "Aston Villa":
+                          return <AstonVilla />;
+                        case "Chelsea":
+                          return <Chelsea />;
+                        case "Everton":
+                          return <Everton />;
+                        case "Liverpool":
+                          return <Liverpool />;
+                        case "Man City":
+                          return <ManCity />;
+                        case "Man United":
+                          return <ManUnited />;
+                        case "Newcastle":
+                          return <Newcastle />;
+                        case "Norwich":
+                          return <Norwich />;
+                        case "Tottenham":
+                          return <Tottenham />;
+                        case "Wolverhampton":
+                          return <Wolverhampton />;
+                        case "Burnley":
+                          return <Burnley />;
+                        case "Leicester City":
+                          return <Leicester />;
+                        case "Southampton":
+                          return <Southampton />;
+                        case "Leeds United":
+                          return <Leeds />;
+                        case "Watford":
+                          return <Watford />;
+                        case "Crystal Palace":
+                          return <CrystalPalace />;
+                        case "Brighton Hove":
+                          return <Brighton />;
+                        case "Brentford":
+                          return <Brentford />;
+                        case "West Ham":
+                          return <WestHam />;
+                        default:
+                          return <Score />;
+                      }
+                    })()}
+
                     <Standings />
                   </div>
                 );
