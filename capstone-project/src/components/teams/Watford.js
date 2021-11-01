@@ -14,6 +14,10 @@ class Watford extends Component {
       matchData: [],
       matchImg: {},
       topPlayers: [],
+      teamId: 346,
+      showTeams: false,
+      awayTeam: [],
+      homeTeam: [],
     };
   }
 
@@ -70,6 +74,22 @@ class Watford extends Component {
     });
   }
 
+  async getTeam() {
+    let teamDataHome = await axios.get(
+      `http://localhost:4040/api/getTeam/${this.props.ids[this.state.home]}`
+    );
+    let teamDataAway = await axios.get(
+      `http://localhost:4040/api/getTeam/${this.props.ids[this.state.away]}`
+    );
+    console.log(teamDataHome.data);
+    console.log(teamDataAway.data);
+
+    this.setState({ awayTeam: teamDataAway.data.squad });
+    this.setState({ homeTeam: teamDataHome.data.squad });
+
+    this.setState({ showTeams: true });
+  }
+
   componentDidMount() {
     this.getScore();
   }
@@ -78,6 +98,18 @@ class Watford extends Component {
     let topScorers = this.state.topPlayers.map((d) => (
       <li className="playerItem">
         {d.name}: {d.score}
+      </li>
+    ));
+
+    let awaySquad = this.state.awayTeam.map((d) => (
+      <li className="awaySquadItem">
+        {d.name}, {d.position}
+      </li>
+    ));
+
+    let homeSquad = this.state.homeTeam.map((d) => (
+      <li className="awaySquadItem">
+        {d.name}, {d.position}
       </li>
     ));
     return (
@@ -99,6 +131,31 @@ class Watford extends Component {
             alt={this.state.home}
           />
         </h4>
+        {(() => {
+          switch (this.state.showTeams) {
+            case true:
+              return (
+                <div>
+                  <div className="teamsSection">
+                    <ul className="awayTeamList">{awaySquad}</ul>
+                    <ul className="homeTeamList">{homeSquad}</ul>
+                  </div>
+                  <button
+                    className="hideTeams"
+                    onClick={() => this.setState({ showTeams: false })}
+                  >
+                    Hide Teams
+                  </button>
+                </div>
+              );
+            default:
+              return (
+                <button className="showTeams" onClick={() => this.getTeam()}>
+                  Show Teams
+                </button>
+              );
+          }
+        })()}
         <h3>Top Scorers</h3>
         <ul className="scorerList">{topScorers}</ul>
       </div>

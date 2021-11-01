@@ -32,6 +32,29 @@ class App extends Component {
       display: "Home",
       user: "",
       userTeam: "",
+      matchDay: 10,
+      teamIds: {
+        "Arsenal FC": 57,
+        "Aston Villa FC": 58,
+        "Chelsea FC": 61,
+        "Everton FC": 62,
+        "Liverpool FC": 64,
+        "Manchester City FC": 65,
+        "Manchester United FC": 66,
+        "Newcastle United FC": 67,
+        "Norwich City FC": 68,
+        "Tottenham Hotspur FC": 73,
+        "Wolverhampton Wanderers FC": 76,
+        "Burnley FC": 328,
+        "Leicester City FC": 338,
+        "Southampton FC": 340,
+        "Leeds United FC": 341,
+        "Watford FC": 346,
+        "Crystal Palace FC": 354,
+        "Brighton & Hove Albion FC": 397,
+        "Brentford FC": 402,
+        "West Ham United FC": 563,
+      },
     };
     this.handler = this.handler.bind(this);
   }
@@ -72,45 +95,45 @@ class App extends Component {
           {(() => {
             switch (this.state.display) {
               case "Arsenal":
-                return <Arsenal />;
+                return <Arsenal ids={this.state.teamIds} />;
               case "Aston Villa":
-                return <AstonVilla />;
+                return <AstonVilla ids={this.state.teamIds} />;
               case "Chelsea":
-                return <Chelsea />;
+                return <Chelsea ids={this.state.teamIds} />;
               case "Everton":
-                return <Everton />;
+                return <Everton ids={this.state.teamIds} />;
               case "Liverpool":
-                return <Liverpool />;
+                return <Liverpool ids={this.state.teamIds} />;
               case "Man City":
-                return <ManCity />;
+                return <ManCity ids={this.state.teamIds} />;
               case "Man United":
-                return <ManUnited />;
+                return <ManUnited ids={this.state.teamIds} />;
               case "Newcastle":
-                return <Newcastle />;
+                return <Newcastle ids={this.state.teamIds} />;
               case "Norwich":
-                return <Norwich />;
+                return <Norwich ids={this.state.teamIds} />;
               case "Tottenham":
-                return <Tottenham />;
+                return <Tottenham ids={this.state.teamIds} />;
               case "Wolverhampton":
-                return <Wolverhampton />;
+                return <Wolverhampton ids={this.state.teamIds} />;
               case "Burnley":
-                return <Burnley />;
+                return <Burnley ids={this.state.teamIds} />;
               case "Leicester City":
-                return <Leicester />;
+                return <Leicester ids={this.state.teamIds} />;
               case "Southampton":
-                return <Southampton />;
+                return <Southampton ids={this.state.teamIds} />;
               case "Leeds United":
-                return <Leeds />;
+                return <Leeds ids={this.state.teamIds} />;
               case "Watford":
-                return <Watford />;
+                return <Watford ids={this.state.teamIds} />;
               case "Crystal Palace":
-                return <CrystalPalace />;
+                return <CrystalPalace ids={this.state.teamIds} />;
               case "Brighton Hove":
-                return <Brighton />;
+                return <Brighton ids={this.state.teamIds} />;
               case "Brentford":
-                return <Brentford />;
+                return <Brentford ids={this.state.teamIds} />;
               case "West Ham":
-                return <WestHam />;
+                return <WestHam ids={this.state.teamIds} />;
               case "Log In":
                 return (
                   <SignIn
@@ -137,47 +160,47 @@ class App extends Component {
                     {(() => {
                       switch (this.state.userTeam) {
                         case "Arsenal":
-                          return <Arsenal />;
+                          return <Arsenal ids={this.state.teamIds} />;
                         case "Aston Villa":
-                          return <AstonVilla />;
+                          return <AstonVilla ids={this.state.teamIds} />;
                         case "Chelsea":
-                          return <Chelsea />;
+                          return <Chelsea ids={this.state.teamIds} />;
                         case "Everton":
-                          return <Everton />;
+                          return <Everton ids={this.state.teamIds} />;
                         case "Liverpool":
-                          return <Liverpool />;
+                          return <Liverpool ids={this.state.teamIds} />;
                         case "Man City":
-                          return <ManCity />;
+                          return <ManCity ids={this.state.teamIds} />;
                         case "Man United":
-                          return <ManUnited />;
+                          return <ManUnited ids={this.state.teamIds} />;
                         case "Newcastle":
-                          return <Newcastle />;
+                          return <Newcastle ids={this.state.teamIds} />;
                         case "Norwich":
-                          return <Norwich />;
+                          return <Norwich ids={this.state.teamIds} />;
                         case "Tottenham":
-                          return <Tottenham />;
+                          return <Tottenham ids={this.state.teamIds} />;
                         case "Wolverhampton":
-                          return <Wolverhampton />;
+                          return <Wolverhampton ids={this.state.teamIds} />;
                         case "Burnley":
-                          return <Burnley />;
+                          return <Burnley ids={this.state.teamIds} />;
                         case "Leicester City":
-                          return <Leicester />;
+                          return <Leicester ids={this.state.teamIds} />;
                         case "Southampton":
-                          return <Southampton />;
+                          return <Southampton ids={this.state.teamIds} />;
                         case "Leeds United":
-                          return <Leeds />;
+                          return <Leeds ids={this.state.teamIds} />;
                         case "Watford":
-                          return <Watford />;
+                          return <Watford ids={this.state.teamIds} />;
                         case "Crystal Palace":
-                          return <CrystalPalace />;
+                          return <CrystalPalace ids={this.state.teamIds} />;
                         case "Brighton Hove":
-                          return <Brighton />;
+                          return <Brighton ids={this.state.teamIds} />;
                         case "Brentford":
-                          return <Brentford />;
+                          return <Brentford ids={this.state.teamIds} />;
                         case "West Ham":
-                          return <WestHam />;
+                          return <WestHam ids={this.state.teamIds} />;
                         default:
-                          return <Score />;
+                          return <Score ids={this.state.teamIds} />;
                       }
                     })()}
 

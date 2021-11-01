@@ -37,6 +37,7 @@ let teams = [];
 let standings = [];
 let matches = [];
 let scorers = [];
+let fplData = [];
 
 //api calls to get data
 
@@ -61,12 +62,15 @@ axios
   });
 
 axios
-  .get("https://api.football-data.org/v2/competitions/PL/matches/?matchday=9", {
-    //Make sure to update match day every week, or fix with new solution
-    headers: {
-      "X-Auth-Token": "1ee93bfc0d79467fab303092daa35386",
-    },
-  })
+  .get(
+    "https://api.football-data.org/v2/competitions/PL/matches/?matchday=10",
+    {
+      //Make sure to update match day every week, or fix with new solution
+      headers: {
+        "X-Auth-Token": "1ee93bfc0d79467fab303092daa35386",
+      },
+    }
+  )
   .then((res) => {
     matches = res.data;
   });
@@ -79,6 +83,13 @@ axios
   })
   .then((res) => {
     scorers = res.data;
+  });
+
+axios
+  .get("https://fantasy.premierleague.com/api/fixtures?event=10")
+  .then((res) => {
+    console.log(res.data);
+    fplData = res.data;
   });
 
 //endpoints for front end api calls
@@ -97,6 +108,23 @@ app.get("/api/match", (req, res) => {
 
 app.get("/api/scorers", (req, res) => {
   res.status(200).send(scorers);
+});
+
+app.get("/api/fpl", (req, res) => {
+  res.status(200).send(fplData);
+});
+
+app.get("/api/getTeam/:id", async (req, res) => {
+  console.log(req.params.id);
+  let data = await axios.get(
+    `https://api.football-data.org/v2/teams/${req.params.id}`,
+    {
+      headers: {
+        "X-Auth-Token": "1ee93bfc0d79467fab303092daa35386",
+      },
+    }
+  );
+  res.status(200).send(data.data);
 });
 
 //Database endpoints
