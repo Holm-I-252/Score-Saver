@@ -100,15 +100,17 @@ class Liverpool extends Component {
     ));
 
     let awaySquad = this.state.awayTeam.map((d) => (
-      <li className="awaySquadItem">
-        {d.name}, {d.position}
-      </li>
+      <tr>
+        <td>{d.name}</td>
+        <td>{d.position}</td>
+      </tr>
     ));
 
     let homeSquad = this.state.homeTeam.map((d) => (
-      <li className="awaySquadItem">
-        {d.name}, {d.position}
-      </li>
+      <tr>
+        <td>{d.name}</td>
+        <td>{d.position}</td>
+      </tr>
     ));
     return (
       <div className="teamScores">
@@ -135,8 +137,20 @@ class Liverpool extends Component {
               return (
                 <div>
                   <div className="teamsSection">
-                    <ul className="awayTeamList">{awaySquad}</ul>
-                    <ul className="homeTeamList">{homeSquad}</ul>
+                    <table className="awayTeamList">
+                      <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                      </tr>
+                      {awaySquad}
+                    </table>
+                    <table className="homeTeamList">
+                      <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                      </tr>
+                      {homeSquad}
+                    </table>
                   </div>
                   <button
                     className="hideTeams"

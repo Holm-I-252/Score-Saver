@@ -138,7 +138,6 @@ app.get("/api/data", async (req, res) => {
       console.log(err.message);
       error = err.message;
     }
-    client.end();
   });
 
   if (rows !== []) {
@@ -160,8 +159,7 @@ app.post("/api/addData", async (req, res) => {
     )
     .then(() => client2.query("SELECT * FROM users"))
     .then((results) => console.table(results.row))
-    .catch((e) => console.log(e))
-    .finally(() => client2.end());
+    .catch((e) => console.log(e));
 
   res.status(200).send(`User ${req.body.username} added!`);
 });

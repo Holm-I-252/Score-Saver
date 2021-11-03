@@ -21,14 +21,31 @@ class Standings extends Component {
 
   render() {
     let table = this.state.data.map((d) => (
-      <li key={d.position} className="tableItem">
-        {d.position}. {d.team.name}
-      </li>
+      <tr key={d.position} className="tableItem">
+        <td>{d.position}</td>
+        <td>{d.team.name}</td>
+        <td>{d.playedGames}</td>
+        <td>{d.won}</td>
+        <td>{d.draw}</td>
+        <td>{d.lost}</td>
+        <td>{d.points}</td>
+      </tr>
     ));
     return (
       <div className="standingsDiv">
         <h1 className="standingsTitle">Current Standings</h1>
-        <div id="standings">{table}</div>
+        <table id="standings">
+          <tr>
+            <th>Place</th>
+            <th>Team</th>
+            <th>Games Played</th>
+            <th>Won</th>
+            <th>Draw</th>
+            <th>Lost</th>
+            <th>Points</th>
+          </tr>
+          {table}
+        </table>
       </div>
     );
   }

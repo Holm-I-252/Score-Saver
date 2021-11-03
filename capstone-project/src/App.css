@@ -90,6 +90,31 @@ h3 {
   font-size: xx-large;
 }
 
+th,
+td {
+  padding: 5px;
+  text-align: left;
+  margin: 0%;
+}
+
+td {
+  border: 1px solid rgb(107, 106, 106);
+  background-color: white;
+}
+
+th {
+  background-color: #04aa6d;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #bdbdbd;
+}
+
+td:hover {
+  background-color: rgb(211, 211, 211);
+}
+
 #headder {
   display: flex;
   flex-direction: row;
@@ -171,6 +196,7 @@ h3 {
   list-style: none;
   padding: 5px;
   border: 2px black;
+  margin-bottom: 5%;
 }
 
 #standings {
@@ -189,7 +215,7 @@ h3 {
 
 .standingsTitle {
   text-align: center;
-  margin-bottom: 9%;
+  margin-bottom: 4%;
   text-decoration: underline;
   font-size: xx-large;
 }
