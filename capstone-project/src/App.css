@@ -127,7 +127,7 @@ td:hover {
 }
 
 .account {
-  margin-right: 3%;
+  margin-right: 10%;
 }
 
 #teamSection {
@@ -207,6 +207,7 @@ td:hover {
   padding: 20px;
   width: 100%;
   background-color: rgb(228, 228, 228);
+  margin-left: 5%;
 }
 
 .standingsDiv {
